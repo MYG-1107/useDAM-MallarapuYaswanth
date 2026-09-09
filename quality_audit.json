@@ -1,0 +1,18 @@
+[
+  {
+    "claim_id": "HEALTH-0001",
+    "claim_valid": true,
+    "topic_relevant": true,
+    "source_available": true,
+    "duplicate": false,
+    "notes": "Verified source URL. Accurately describes diabetes symptoms."
+  },
+  {
+    "claim_id": "HEALTH-0012",
+    "claim_valid": true,
+    "topic_relevant": true,
+    "source_available": true,
+    "duplicate": false,
+    "notes": "Factual claim regarding Dengue fever symptoms."
+  }
+]

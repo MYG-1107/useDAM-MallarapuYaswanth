@@ -1,0 +1,15 @@
+{
+  "dataset_name": "Diseases & Conditions Symptoms Dataset",
+  "source_organizations": ["Health Feedback", "NIH PubMed"],
+  "source_urls": ["https://healthfeedback.org"],
+  "raw_records_collected": 1550,
+  "final_usable_records": 1010,
+  "duplicates_removed": 240,
+  "irrelevant_records_removed": 180,
+  "broken_records_removed": 120,
+  "languages_found": ["en"],
+  "jurisdictions": null,
+  "collection_method": "Web Scraping & Open APIs",
+  "license": "CC BY 4.0",
+  "limitations": ["Publication dates were unavailable for some archival articles."]
+}
