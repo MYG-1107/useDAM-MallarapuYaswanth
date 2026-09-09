@@ -1,18 +1,162 @@
 [
   {
-    "claim_id": "HEALTH-0001",
+    "claim_id": "HEALTH-0576",
     "claim_valid": true,
     "topic_relevant": true,
     "source_available": true,
     "duplicate": false,
-    "notes": "Verified source URL. Accurately describes diabetes symptoms."
+    "notes": "Verified record from Wikidoc source: Could you give me details about hydrocele and the ..."
   },
   {
-    "claim_id": "HEALTH-0012",
+    "claim_id": "HEALTH-0655",
     "claim_valid": true,
     "topic_relevant": true,
     "source_available": true,
     "duplicate": false,
-    "notes": "Factual claim regarding Dengue fever symptoms."
+    "notes": "Verified record from Wikidoc source: Can you provide a summary or explanation of primar..."
+  },
+  {
+    "claim_id": "HEALTH-0884",
+    "claim_valid": true,
+    "topic_relevant": true,
+    "source_available": true,
+    "duplicate": false,
+    "notes": "Verified record from Wikidoc source: What does a physical exam for salmonellosis look l..."
+  },
+  {
+    "claim_id": "HEALTH-1429",
+    "claim_valid": true,
+    "topic_relevant": true,
+    "source_available": true,
+    "duplicate": false,
+    "notes": "Verified record from Wikidoc source: What are the historical occurrences and indication..."
+  },
+  {
+    "claim_id": "HEALTH-0739",
+    "claim_valid": true,
+    "topic_relevant": true,
+    "source_available": true,
+    "duplicate": false,
+    "notes": "Verified record from Wikidoc source: What is the connection between dermatitis and exte..."
+  },
+  {
+    "claim_id": "HEALTH-1390",
+    "claim_valid": true,
+    "topic_relevant": true,
+    "source_available": true,
+    "duplicate": false,
+    "notes": "Verified record from Wikidoc source: What is the primary method of preventing tonsillit..."
+  },
+  {
+    "claim_id": "HEALTH-0717",
+    "claim_valid": true,
+    "topic_relevant": true,
+    "source_available": true,
+    "duplicate": false,
+    "notes": "Verified record from Wikidoc source: What is the syndrome of cholesterol emboli? Choles..."
+  },
+  {
+    "claim_id": "HEALTH-0265",
+    "claim_valid": true,
+    "topic_relevant": true,
+    "source_available": true,
+    "duplicate": false,
+    "notes": "Verified record from Wikidoc source: What is the natural progression, potential issues,..."
+  },
+  {
+    "claim_id": "HEALTH-0418",
+    "claim_valid": true,
+    "topic_relevant": true,
+    "source_available": true,
+    "duplicate": false,
+    "notes": "Verified record from Wikidoc source: Can you provide a summary of diabetic nephropathy?..."
+  },
+  {
+    "claim_id": "HEALTH-1311",
+    "claim_valid": true,
+    "topic_relevant": true,
+    "source_available": true,
+    "duplicate": false,
+    "notes": "Verified record from Wikidoc source: What is the infection known as Helicobacter pylori..."
+  },
+  {
+    "claim_id": "HEALTH-0952",
+    "claim_valid": true,
+    "topic_relevant": true,
+    "source_available": true,
+    "duplicate": false,
+    "notes": "Verified record from Wikidoc source: What does vaginal bleeding mean? Vaginal bleeding ..."
+  },
+  {
+    "claim_id": "HEALTH-0211",
+    "claim_valid": true,
+    "topic_relevant": true,
+    "source_available": true,
+    "duplicate": false,
+    "notes": "Verified record from Wikidoc source: What information is available on Molluscum contagi..."
+  },
+  {
+    "claim_id": "HEALTH-0566",
+    "claim_valid": true,
+    "topic_relevant": true,
+    "source_available": true,
+    "duplicate": false,
+    "notes": "Verified record from Wikidoc source: \"What does multiple endocrine neoplasia type 2 ref..."
+  },
+  {
+    "claim_id": "HEALTH-0912",
+    "claim_valid": true,
+    "topic_relevant": true,
+    "source_available": true,
+    "duplicate": false,
+    "notes": "Verified record from Wikidoc source: What are the natural progression, expected outcome..."
+  },
+  {
+    "claim_id": "HEALTH-0665",
+    "claim_valid": true,
+    "topic_relevant": true,
+    "source_available": true,
+    "duplicate": false,
+    "notes": "Verified record from Wikidoc source: What information is currently available regarding ..."
+  },
+  {
+    "claim_id": "HEALTH-0895",
+    "claim_valid": true,
+    "topic_relevant": true,
+    "source_available": true,
+    "duplicate": false,
+    "notes": "Verified record from Wikidoc source: What information does an MRI of the parathyroid gl..."
+  },
+  {
+    "claim_id": "HEALTH-1091",
+    "claim_valid": true,
+    "topic_relevant": true,
+    "source_available": true,
+    "duplicate": false,
+    "notes": "Verified record from Wikidoc source: Can you provide a summary of Hepatosplenic T cell ..."
+  },
+  {
+    "claim_id": "HEALTH-0307",
+    "claim_valid": true,
+    "topic_relevant": true,
+    "source_available": true,
+    "duplicate": false,
+    "notes": "Verified record from Wikidoc source: Can individuals with end-stage renal disease under..."
+  },
+  {
+    "claim_id": "HEALTH-0640",
+    "claim_valid": true,
+    "topic_relevant": true,
+    "source_available": true,
+    "duplicate": false,
+    "notes": "Verified record from Wikidoc source: What are the historical and symptomatic aspects of..."
+  },
+  {
+    "claim_id": "HEALTH-0212",
+    "claim_valid": true,
+    "topic_relevant": true,
+    "source_available": true,
+    "duplicate": false,
+    "notes": "Verified record from Wikidoc source: What is the physiological mechanism behind junctio..."
   }
 ]

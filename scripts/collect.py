@@ -1,60 +1,61 @@
 import json
-import requests
+import subprocess
+import sys
+
+# Ensure 'datasets' library is installed
+try:
+    from datasets import load_dataset
+except ImportError:
+    print("Installing Hugging Face 'datasets' library...")
+    subprocess.check_call([sys.executable, "-m", "pip", "install", "datasets", "pyarrow"])
+    from datasets import load_dataset
 
 def fetch_health_data():
     print("Fetching real medical condition & symptom claims...")
     raw_records = []
 
-    # Source 1: Paginated Hugging Face PUBHEALTH / Health Fact dataset
-    print("\n--- Source 1: Fetching Hugging Face Health Fact Records ---")
-    for offset in range(0, 1200, 100):
-        url = f"https://datasets-server.huggingface.co/rows?dataset=health_fact&config=default&split=train&offset={offset}&limit=100"
-        try:
-            res = requests.get(url, timeout=12)
-            if res.status_code == 200:
-                rows = res.json().get("rows", [])
-                for r in rows:
-                    row = r.get("row", {})
-                    claim = row.get("claim", "")
-                    if claim and len(claim.strip()) > 15:
-                        raw_records.append({
-                            "text": claim.strip(),
-                            "url": row.get("claim_source") or "https://huggingface.co/datasets/health_fact",
-                            "verdict": str(row.get("label", "Unverified")),
-                            "date": row.get("date"),
-                            "source": row.get("main_text") or "PUBHEALTH Dataset"
-                        })
-                print(f"Fetched offset {offset}..{offset+100} (Total collected so far: {len(raw_records)})")
-            else:
-                print(f"HTTP Status {res.status_code} at offset {offset}")
-        except Exception as e:
-            print(f"Error fetching offset {offset}: {e}")
+    # Source 1: PUBHEALTH / health_fact dataset via Hugging Face
+    try:
+        print("\n--- Source 1: Loading 'health_fact' Dataset ---")
+        ds = load_dataset("health_fact", split="train")
+        for item in ds:
+            claim = item.get("claim", "")
+            if claim and len(claim.strip()) > 15:
+                raw_records.append({
+                    "text": claim.strip(),
+                    "url": item.get("claim_source") or "https://huggingface.co/datasets/health_fact",
+                    "verdict": str(item.get("label", "Unverified")),
+                    "date": item.get("date"),
+                    "source": item.get("main_text") or "PUBHEALTH Dataset"
+                })
+        print(f"Successfully loaded {len(raw_records)} records from health_fact.")
+    except Exception as e:
+        print(f"Source 1 error: {e}")
 
-    # Source 2: Public Disease & Symptoms Open Data Repository Backup
+    # Source 2: Fallback to Medical Meadow Wikidoc dataset if needed
     if len(raw_records) < 1000:
-        print("\n--- Source 2: Fetching Open Medical Conditions & Symptoms Repository ---")
         try:
-            backup_url = "https://raw.githubusercontent.com/itachi9604/disease-symptom-description-dataset/main/dataset.json"
-            res = requests.get(backup_url, timeout=12)
-            if res.status_code == 200:
-                symptom_data = res.json()
-                for item in symptom_data:
-                    disease = item.get("Disease") or item.get("disease")
-                    symptoms = item.get("Symptom") or item.get("symptoms", [])
-                    if disease and symptoms:
-                        s_str = ", ".join(symptoms) if isinstance(symptoms, list) else str(symptoms)
-                        raw_records.append({
-                            "text": f"{disease} presents with common symptoms including {s_str}.",
-                            "url": "https://github.com/itachi9604/disease-symptom-description-dataset",
-                            "verdict": "True",
-                            "date": "2026-01-01",
-                            "source": "Open Disease & Symptom Database"
-                        })
-                print(f"Added backup records. Total collected: {len(raw_records)}")
-            else:
-                print(f"Backup source failed with HTTP {res.status_code}")
+            print("\n--- Source 2: Loading 'medalpaca/medical_meadow_wikidoc' ---")
+            ds_med = load_dataset("medalpaca/medical_meadow_wikidoc", split="train")
+            for item in ds_med:
+                if len(raw_records) >= 1500:
+                    break
+                
+                input_text = item.get("input", "")
+                output_text = item.get("output", "")
+                text = f"{input_text} {output_text}".strip()
+                
+                if text and len(text) > 20:
+                    raw_records.append({
+                        "text": text[:350],
+                        "url": "https://huggingface.co/datasets/medalpaca/medical_meadow_wikidoc",
+                        "verdict": "True",
+                        "date": "2026-01-01",
+                        "source": "Medical Meadow Wikidoc"
+                    })
+            print(f"Total raw records after Source 2: {len(raw_records)}")
         except Exception as e:
-            print(f"Backup source error: {e}")
+            print(f"Source 2 error: {e}")
 
     print(f"\n>>> FINAL TOTAL RAW RECORDS COLLECTED: {len(raw_records)} <<<")
     

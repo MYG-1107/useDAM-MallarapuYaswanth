@@ -1,24 +1,22 @@
-# Assignment ID: DAM-023
-## Category: Health & Medicine
-## Subcategory: Diseases & Conditions + Symptoms
 
-### 1. Dataset Overview
-This dataset contains ~1,000 cleaned factual claims related to medical conditions and their associated symptoms.
+* **Assignment ID**: DAM-023
+* **Category**: Health & Medicine
+* **Subcategory**: Diseases & Conditions + Symptoms
+* **Language**: English (en)
 
-### 2. Sources Used
-* **Health Feedback**: Fact-checked health claims from medical experts.
-* **PubMed Open Access / Hugging Face**: Publicly accessible health and symptom datasets.
+## Overview
+This dataset contains 1,500 factual medical records detailing medical conditions, treatments, and symptom profiles extracted from verified open sources.
 
-### 3. Collection & Methodology
-* **Collection (`scripts/collect.py`)**: Fetched raw records via Python `requests` and `BeautifulSoup`.
-* **Cleaning (`scripts/clean.py`)**: Filtered out incomplete sentences, navigation headers, and non-English text. Normalized fields to the target JSON schema.
-* **Deduplication (`scripts/deduplicate.py`)**: Removed exact string matches and near-duplicate text entries.
+## Data Source & Methodology
+* **Source**: `medalpaca/medical_meadow_wikidoc` via Hugging Face Datasets.
+* **Collection (`scripts/collect.py`)**: Programmatically loaded via Hugging Face `datasets` Python API.
+* **Cleaning & Formatting (`scripts/clean.py`)**: Filtered out short text entries and mapped fields to the UseDAM standard schema.
+* **Deduplication (`scripts/deduplicate.py`)**: Processed string deduplication across claim text fields.
 
-### 4. Data Counts
-* **Raw Records**: 1,550
-* **Duplicates Removed**: 240
-* **Irrelevant/Broken Removed**: 300
-* **Final Usable Claims**: 1,010
+## Record Summary
+* **Raw Collected**: 1,500
+* **Final Usable Records**: 1,500
+* **Format**: JSONL (`dataset.jsonl`)
 
-### 5. Tools Used
-Python 3.10+, Requests, BeautifulSoup4, JSON.
+## Tools Used
+Python 3.14, Hugging Face `datasets` library, PyArrow, JSON.

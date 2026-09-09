@@ -1,15 +1,15 @@
 {
   "dataset_name": "Diseases & Conditions Symptoms Dataset",
-  "source_organizations": ["Health Feedback", "NIH PubMed"],
-  "source_urls": ["https://healthfeedback.org"],
-  "raw_records_collected": 1550,
-  "final_usable_records": 1010,
-  "duplicates_removed": 240,
-  "irrelevant_records_removed": 180,
-  "broken_records_removed": 120,
+  "source_organizations": ["MedAlpaca / Wikidoc"],
+  "source_urls": ["https://huggingface.co/datasets/medalpaca/medical_meadow_wikidoc"],
+  "raw_records_collected": 1500,
+  "final_usable_records": 1500,
+  "duplicates_removed": 0,
+  "irrelevant_records_removed": 0,
+  "broken_records_removed": 0,
   "languages_found": ["en"],
   "jurisdictions": null,
-  "collection_method": "Web Scraping & Open APIs",
-  "license": "CC BY 4.0",
-  "limitations": ["Publication dates were unavailable for some archival articles."]
+  "collection_method": "Hugging Face Datasets Library",
+  "license": "CC BY-SA 4.0",
+  "limitations": ["Medical excerpts extracted from Wikidoc open documentation; claim dates were not preserved in the underlying source dataset."]
 }
