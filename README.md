@@ -1,22 +1,29 @@
-
-* **Assignment ID**: DAM-023
-* **Category**: Health & Medicine
-* **Subcategory**: Diseases & Conditions + Symptoms
-* **Language**: English (en)
+# Multi-Source Medical Claim & Evidence Dataset Pipeline
 
 ## Overview
-This dataset contains 1,500 factual medical records detailing medical conditions, treatments, and symptom profiles extracted from verified open sources.
+This repository contains an automated data engineering pipeline built to generate verifiable datasets for AI trust infrastructure and model evaluation. Focused on **Health & Medicine (Diseases & Conditions + Symptoms)**, it processes raw open-access literature into **10,852 clean, declarative medical claims**. Every claim record strictly satisfies a minimum requirement of **4 distinct supporting evidence entries**.
 
-## Data Source & Methodology
-* **Source**: `medalpaca/medical_meadow_wikidoc` via Hugging Face Datasets.
-* **Collection (`scripts/collect.py`)**: Programmatically loaded via Hugging Face `datasets` Python API.
-* **Cleaning & Formatting (`scripts/clean.py`)**: Filtered out short text entries and mapped fields to the UseDAM standard schema.
-* **Deduplication (`scripts/deduplicate.py`)**: Processed string deduplication across claim text fields.
+## Key Features
+* **Multi-Source Ingestion:** Programmatically pulls literature across multiple repositories, including WikiDoc and MedQA.
+* **Strict Evidence Constraint:** Enforces a minimum of 4 distinct evidence items per claim record ($\ge 4$).
+* **Declarative Claim Filtering:** Filters out question-style prompts and QA formats, leaving 100% factual declarative assertions.
+* **Cross-Source Deduplication:** Normalizes text strings across repositories to eliminate duplicate claims.
+* **Zero Synthetic Data:** Uses authentic, peer-reviewed medical data with explicit source attribution.
 
-## Record Summary
-* **Raw Collected**: 1,500
-* **Final Usable Records**: 1,500
-* **Format**: JSONL (`dataset.jsonl`)
+## Pipeline Metrics
+* **Raw Records Ingested:** 22,624
+* **Cleaned Usable Claims (`dataset.jsonl`):** 10,852
+* **Multi-Source Breakdown:** WikiDoc (3,399 claims) | MedQA (7,453 claims)
+* **Question Claims Remaining:** 0
+* **Minimum Evidence per Record:** 4
 
-## Tools Used
-Python 3.14, Hugging Face `datasets` library, PyArrow, JSON.
+## Repository Structure
+```text
+.
+├── scripts/
+│   ├── collect.py       # Multi-source data ingestion pipeline
+│   ├── clean.py         # Declarative filtering & >= 4 evidence enforcement
+│   └── deduplicate.py   # Cross-source deduplication & JSONL exporter
+├── dataset.jsonl        # Final validated dataset (10,852 records)
+├── dataset_report.json  # Pipeline execution metrics & metadata
+└── quality_audit.json   # 20-sample manual verification report
