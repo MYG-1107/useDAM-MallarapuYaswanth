@@ -1,162 +1,182 @@
 [
   {
-    "claim_id": "HEALTH-0576",
+    "claim_id": "CLAIM-7869",
     "claim_valid": true,
     "topic_relevant": true,
-    "source_available": true,
+    "evidence_count": 4,
+    "primary_source": "MedQA",
     "duplicate": false,
-    "notes": "Verified record from Wikidoc source: Could you give me details about hydrocele and the ..."
+    "notes": "Verified declarative statement with 4 evidence sources."
   },
   {
-    "claim_id": "HEALTH-0655",
+    "claim_id": "CLAIM-10036",
     "claim_valid": true,
     "topic_relevant": true,
-    "source_available": true,
+    "evidence_count": 4,
+    "primary_source": "MedQA",
     "duplicate": false,
-    "notes": "Verified record from Wikidoc source: Can you provide a summary or explanation of primar..."
+    "notes": "Verified declarative statement with 4 evidence sources."
   },
   {
-    "claim_id": "HEALTH-0884",
+    "claim_id": "CLAIM-4931",
     "claim_valid": true,
     "topic_relevant": true,
-    "source_available": true,
+    "evidence_count": 4,
+    "primary_source": "MedQA",
     "duplicate": false,
-    "notes": "Verified record from Wikidoc source: What does a physical exam for salmonellosis look l..."
+    "notes": "Verified declarative statement with 4 evidence sources."
   },
   {
-    "claim_id": "HEALTH-1429",
+    "claim_id": "CLAIM-1789",
     "claim_valid": true,
     "topic_relevant": true,
-    "source_available": true,
+    "evidence_count": 4,
+    "primary_source": "WikiDoc",
     "duplicate": false,
-    "notes": "Verified record from Wikidoc source: What are the historical occurrences and indication..."
+    "notes": "Verified declarative statement with 4 evidence sources."
   },
   {
-    "claim_id": "HEALTH-0739",
+    "claim_id": "CLAIM-8674",
     "claim_valid": true,
     "topic_relevant": true,
-    "source_available": true,
+    "evidence_count": 4,
+    "primary_source": "MedQA",
     "duplicate": false,
-    "notes": "Verified record from Wikidoc source: What is the connection between dermatitis and exte..."
+    "notes": "Verified declarative statement with 4 evidence sources."
   },
   {
-    "claim_id": "HEALTH-1390",
+    "claim_id": "CLAIM-3361",
     "claim_valid": true,
     "topic_relevant": true,
-    "source_available": true,
+    "evidence_count": 4,
+    "primary_source": "WikiDoc",
     "duplicate": false,
-    "notes": "Verified record from Wikidoc source: What is the primary method of preventing tonsillit..."
+    "notes": "Verified declarative statement with 4 evidence sources."
   },
   {
-    "claim_id": "HEALTH-0717",
+    "claim_id": "CLAIM-3889",
     "claim_valid": true,
     "topic_relevant": true,
-    "source_available": true,
+    "evidence_count": 4,
+    "primary_source": "MedQA",
     "duplicate": false,
-    "notes": "Verified record from Wikidoc source: What is the syndrome of cholesterol emboli? Choles..."
+    "notes": "Verified declarative statement with 4 evidence sources."
   },
   {
-    "claim_id": "HEALTH-0265",
+    "claim_id": "CLAIM-9868",
     "claim_valid": true,
     "topic_relevant": true,
-    "source_available": true,
+    "evidence_count": 4,
+    "primary_source": "MedQA",
     "duplicate": false,
-    "notes": "Verified record from Wikidoc source: What is the natural progression, potential issues,..."
+    "notes": "Verified declarative statement with 4 evidence sources."
   },
   {
-    "claim_id": "HEALTH-0418",
+    "claim_id": "CLAIM-4252",
     "claim_valid": true,
     "topic_relevant": true,
-    "source_available": true,
+    "evidence_count": 4,
+    "primary_source": "MedQA",
     "duplicate": false,
-    "notes": "Verified record from Wikidoc source: Can you provide a summary of diabetic nephropathy?..."
+    "notes": "Verified declarative statement with 4 evidence sources."
   },
   {
-    "claim_id": "HEALTH-1311",
+    "claim_id": "CLAIM-8663",
     "claim_valid": true,
     "topic_relevant": true,
-    "source_available": true,
+    "evidence_count": 4,
+    "primary_source": "MedQA",
     "duplicate": false,
-    "notes": "Verified record from Wikidoc source: What is the infection known as Helicobacter pylori..."
+    "notes": "Verified declarative statement with 4 evidence sources."
   },
   {
-    "claim_id": "HEALTH-0952",
+    "claim_id": "CLAIM-7105",
     "claim_valid": true,
     "topic_relevant": true,
-    "source_available": true,
+    "evidence_count": 4,
+    "primary_source": "MedQA",
     "duplicate": false,
-    "notes": "Verified record from Wikidoc source: What does vaginal bleeding mean? Vaginal bleeding ..."
+    "notes": "Verified declarative statement with 4 evidence sources."
   },
   {
-    "claim_id": "HEALTH-0211",
+    "claim_id": "CLAIM-3628",
     "claim_valid": true,
     "topic_relevant": true,
-    "source_available": true,
+    "evidence_count": 4,
+    "primary_source": "MedQA",
     "duplicate": false,
-    "notes": "Verified record from Wikidoc source: What information is available on Molluscum contagi..."
+    "notes": "Verified declarative statement with 4 evidence sources."
   },
   {
-    "claim_id": "HEALTH-0566",
+    "claim_id": "CLAIM-5493",
     "claim_valid": true,
     "topic_relevant": true,
-    "source_available": true,
+    "evidence_count": 4,
+    "primary_source": "MedQA",
     "duplicate": false,
-    "notes": "Verified record from Wikidoc source: \"What does multiple endocrine neoplasia type 2 ref..."
+    "notes": "Verified declarative statement with 4 evidence sources."
   },
   {
-    "claim_id": "HEALTH-0912",
+    "claim_id": "CLAIM-9610",
     "claim_valid": true,
     "topic_relevant": true,
-    "source_available": true,
+    "evidence_count": 4,
+    "primary_source": "MedQA",
     "duplicate": false,
-    "notes": "Verified record from Wikidoc source: What are the natural progression, expected outcome..."
+    "notes": "Verified declarative statement with 4 evidence sources."
   },
   {
-    "claim_id": "HEALTH-0665",
+    "claim_id": "CLAIM-6640",
     "claim_valid": true,
     "topic_relevant": true,
-    "source_available": true,
+    "evidence_count": 4,
+    "primary_source": "MedQA",
     "duplicate": false,
-    "notes": "Verified record from Wikidoc source: What information is currently available regarding ..."
+    "notes": "Verified declarative statement with 4 evidence sources."
   },
   {
-    "claim_id": "HEALTH-0895",
+    "claim_id": "CLAIM-0017",
     "claim_valid": true,
     "topic_relevant": true,
-    "source_available": true,
+    "evidence_count": 4,
+    "primary_source": "WikiDoc",
     "duplicate": false,
-    "notes": "Verified record from Wikidoc source: What information does an MRI of the parathyroid gl..."
+    "notes": "Verified declarative statement with 4 evidence sources."
   },
   {
-    "claim_id": "HEALTH-1091",
+    "claim_id": "CLAIM-2869",
     "claim_valid": true,
     "topic_relevant": true,
-    "source_available": true,
+    "evidence_count": 4,
+    "primary_source": "WikiDoc",
     "duplicate": false,
-    "notes": "Verified record from Wikidoc source: Can you provide a summary of Hepatosplenic T cell ..."
+    "notes": "Verified declarative statement with 4 evidence sources."
   },
   {
-    "claim_id": "HEALTH-0307",
+    "claim_id": "CLAIM-5564",
     "claim_valid": true,
     "topic_relevant": true,
-    "source_available": true,
+    "evidence_count": 4,
+    "primary_source": "MedQA",
     "duplicate": false,
-    "notes": "Verified record from Wikidoc source: Can individuals with end-stage renal disease under..."
+    "notes": "Verified declarative statement with 4 evidence sources."
   },
   {
-    "claim_id": "HEALTH-0640",
+    "claim_id": "CLAIM-2770",
     "claim_valid": true,
     "topic_relevant": true,
-    "source_available": true,
+    "evidence_count": 4,
+    "primary_source": "WikiDoc",
     "duplicate": false,
-    "notes": "Verified record from Wikidoc source: What are the historical and symptomatic aspects of..."
+    "notes": "Verified declarative statement with 4 evidence sources."
   },
   {
-    "claim_id": "HEALTH-0212",
+    "claim_id": "CLAIM-9179",
     "claim_valid": true,
     "topic_relevant": true,
-    "source_available": true,
+    "evidence_count": 4,
+    "primary_source": "MedQA",
     "duplicate": false,
-    "notes": "Verified record from Wikidoc source: What is the physiological mechanism behind junctio..."
+    "notes": "Verified declarative statement with 4 evidence sources."
   }
 ]

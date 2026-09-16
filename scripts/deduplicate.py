@@ -1,26 +1,41 @@
 import json
 
-def deduplicate():
+def deduplicate_and_format_export():
     with open("cleaned_data.json", "r", encoding="utf-8") as f:
         records = json.load(f)
-
+        
     seen_claims = set()
     final_records = []
-
-    for rec in records:
-        claim_text = rec["claim"].strip().lower()
+    source_counts = {}
+    
+    for record in records:
+        # Cross-source claim text normalization
+        normalized_claim = record["claim"].strip().lower()
+        evidence_list = record.get("evidence", [])
         
-        # Simple exact deduplication (can extend with Cosine Similarity for near-duplicates)
-        if claim_text in seen_claims:
-            continue
+        # Deduplicate and double-verify minimum 4 evidence condition
+        if normalized_claim not in seen_claims and len(evidence_list) >= 4:
+            seen_claims.add(normalized_claim)
             
-        seen_claims.add(claim_text)
-        final_records.append(rec)
-
-    # Write line-delimited JSON (JSONL)
+            # Sequential re-indexing
+            record["claim_id"] = f"CLAIM-{len(final_records)+1:04d}"
+            final_records.append(record)
+            
+            # Track multi-source statistics
+            src = record.get("primary_source", "Unknown")
+            source_counts[src] = source_counts.get(src, 0) + 1
+            
+    # Export final JSONL format
     with open("dataset.jsonl", "w", encoding="utf-8") as f:
-        for rec in final_records:
-            f.write(json.dumps(rec) + "\n")
+        for record in final_records:
+            f.write(json.dumps(record) + "\n")
+            
+    print("\n--- Pipeline Completion Summary ---")
+    print(f"Total Unique Exported Claims: {len(final_records)}")
+    print("Multi-Source Breakdown:")
+    for src, count in source_counts.items():
+        print(f"  - {src}: {count} claims")
+    print("------------------------------------\n")
 
 if __name__ == "__main__":
-    deduplicate()
+    deduplicate_and_format_export()

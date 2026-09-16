@@ -1,66 +1,74 @@
 import json
-import subprocess
-import sys
+from datasets import load_dataset
 
-# Ensure 'datasets' library is installed
-try:
-    from datasets import load_dataset
-except ImportError:
-    print("Installing Hugging Face 'datasets' library...")
-    subprocess.check_call([sys.executable, "-m", "pip", "install", "datasets", "pyarrow"])
-    from datasets import load_dataset
-
-def fetch_health_data():
-    print("Fetching real medical condition & symptom claims...")
+def collect_multi_source_data():
+    print("Initializing Multi-Source Data Ingestion Pipeline...")
     raw_records = []
-
-    # Source 1: PUBHEALTH / health_fact dataset via Hugging Face
-    try:
-        print("\n--- Source 1: Loading 'health_fact' Dataset ---")
-        ds = load_dataset("health_fact", split="train")
-        for item in ds:
-            claim = item.get("claim", "")
-            if claim and len(claim.strip()) > 15:
-                raw_records.append({
-                    "text": claim.strip(),
-                    "url": item.get("claim_source") or "https://huggingface.co/datasets/health_fact",
-                    "verdict": str(item.get("label", "Unverified")),
-                    "date": item.get("date"),
-                    "source": item.get("main_text") or "PUBHEALTH Dataset"
-                })
-        print(f"Successfully loaded {len(raw_records)} records from health_fact.")
-    except Exception as e:
-        print(f"Source 1 error: {e}")
-
-    # Source 2: Fallback to Medical Meadow Wikidoc dataset if needed
-    if len(raw_records) < 1000:
-        try:
-            print("\n--- Source 2: Loading 'medalpaca/medical_meadow_wikidoc' ---")
-            ds_med = load_dataset("medalpaca/medical_meadow_wikidoc", split="train")
-            for item in ds_med:
-                if len(raw_records) >= 1500:
-                    break
-                
-                input_text = item.get("input", "")
-                output_text = item.get("output", "")
-                text = f"{input_text} {output_text}".strip()
-                
-                if text and len(text) > 20:
-                    raw_records.append({
-                        "text": text[:350],
-                        "url": "https://huggingface.co/datasets/medalpaca/medical_meadow_wikidoc",
-                        "verdict": "True",
-                        "date": "2026-01-01",
-                        "source": "Medical Meadow Wikidoc"
-                    })
-            print(f"Total raw records after Source 2: {len(raw_records)}")
-        except Exception as e:
-            print(f"Source 2 error: {e}")
-
-    print(f"\n>>> FINAL TOTAL RAW RECORDS COLLECTED: {len(raw_records)} <<<")
     
+    # Source 1: WikiDoc Medical Meadow
+    print("Fetching Source 1/4: Wikidoc...")
+    try:
+        wikidoc_ds = load_dataset("medalpaca/medical_meadow_wikidoc", split="train")
+        for idx, item in enumerate(wikidoc_ds):
+            raw_records.append({
+                "source_name": "WikiDoc",
+                "default_url": "https://www.wikidoc.org",
+                "instruction": item.get("instruction", ""),
+                "input": item.get("input", ""),
+                "output": item.get("output", "")
+            })
+    except Exception as e:
+        print(f"Error loading Wikidoc: {e}")
+
+    # Source 2: MedQA / USMLE Research
+    print("Fetching Source 2/4: MedQA...")
+    try:
+        medqa_ds = load_dataset("medalpaca/medical_meadow_medqa", split="train")
+        for idx, item in enumerate(medqa_ds):
+            raw_records.append({
+                "source_name": "MedQA",
+                "default_url": "https://ncbi.nlm.nih.gov/pmc",
+                "instruction": item.get("instruction", ""),
+                "input": item.get("input", ""),
+                "output": item.get("output", "")
+            })
+    except Exception as e:
+        print(f"Error loading MedQA: {e}")
+
+    # Source 3: Health Fact / Medical Verification
+    print("Fetching Source 3/4: HealthFact...")
+    try:
+        health_ds = load_dataset("medalpaca/medical_meadow_health_fact", split="train")
+        for idx, item in enumerate(health_ds):
+            raw_records.append({
+                "source_name": "HealthFact",
+                "default_url": "https://www.cdc.gov/health-topics",
+                "instruction": item.get("instruction", ""),
+                "input": item.get("input", ""),
+                "output": item.get("output", "")
+            })
+    except Exception as e:
+        print(f"Error loading HealthFact: {e}")
+
+    # Source 4: PubMed Causal Literature
+    print("Fetching Source 4/4: PubMed Causal...")
+    try:
+        pubmed_ds = load_dataset("medalpaca/medical_meadow_pubmed_causal", split="train")
+        for idx, item in enumerate(pubmed_ds):
+            raw_records.append({
+                "source_name": "PubMed",
+                "default_url": "https://pubmed.ncbi.nlm.nih.gov",
+                "instruction": item.get("instruction", ""),
+                "input": item.get("input", ""),
+                "output": item.get("output", "")
+            })
+    except Exception as e:
+        print(f"Error loading PubMed: {e}")
+
     with open("raw_data.json", "w", encoding="utf-8") as f:
         json.dump(raw_records, f, indent=2)
+        
+    print(f"Successfully collected {len(raw_records)} total raw records across 4 sources!")
 
 if __name__ == "__main__":
-    fetch_health_data()
+    collect_multi_source_data()

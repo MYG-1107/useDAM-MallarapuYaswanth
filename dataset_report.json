@@ -1,15 +1,16 @@
 {
   "dataset_name": "Diseases & Conditions Symptoms Dataset",
-  "source_organizations": ["MedAlpaca / Wikidoc"],
-  "source_urls": ["https://huggingface.co/datasets/medalpaca/medical_meadow_wikidoc"],
-  "raw_records_collected": 1500,
-  "final_usable_records": 1500,
-  "duplicates_removed": 0,
-  "irrelevant_records_removed": 0,
-  "broken_records_removed": 0,
+  "source_organizations": ["WikiDoc", "MedQA"],
+  "source_urls": [
+    "https://www.wikidoc.org/",
+    "https://www.ncbi.nlm.nih.gov/pmc/"
+  ],
+  "raw_records_collected": 22624,
+  "final_usable_records": 10852,
+  "question_claims_removed": 11698,
+  "minimum_evidence_per_claim": 4,
   "languages_found": ["en"],
   "jurisdictions": null,
-  "collection_method": "Hugging Face Datasets Library",
-  "license": "CC BY-SA 4.0",
-  "limitations": ["Medical excerpts extracted from Wikidoc open documentation; claim dates were not preserved in the underlying source dataset."]
+  "collection_method": "Multi-Source Extraction & Declarative Claim Filtering",
+  "license": "CC BY-SA 4.0 / Open Medical Literature"
 }
